@@ -1,5 +1,5 @@
 class App
-  def menu
+  def self.menu
     puts 'Welcome To the Catalog of things'
 
     puts 'Please enter option number 1 - 11 to begin'
@@ -29,10 +29,11 @@ class App
     puts '12 - Add a game'
 
     puts '13 - Exit'
+    Integer(gets.chomp)
   end
 
-  def select(choice)
-    case choice
+  loop do
+    case menu
     when 1
       puts 'List all books selected'
     when 2
@@ -58,21 +59,17 @@ class App
     when 12
       puts 'create_game selected'
     when 13
-      puts 'Thanks For Using Our Program'
       exit
     else
       puts "#{choice} Invalid option"
     end
   end
-
   def run
     choice = 1
 
     while choice != 13
-      menu # call the many method
       print 'Please choose an option by entering a number:=> '
-      choice = gets.chomp.strip.to_i # get the user's choice
-      select(choice) # call the select method with user input
+      select # call the select method with user input
 
       print 'Press any key to continue....'
 
