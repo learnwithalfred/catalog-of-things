@@ -28,7 +28,17 @@ The data is stored in JSON files but a database ia also prepared with tables str
 - Twitter: [@kb_alfred](https://twitter.com/kb_alfred)
 - LinkedIn: [@learnwithalfred](https://www.linkedin.com/in/learnwithalfred/)
 
+👤 **Seth Bizimana**
 
+- GitHub: [@Github](https://github.com/Sevenpros)
+- Twitter: [@twitter](https://twitter.com/BizimanaSeth)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/seth-bizimana-2a0624189)
+
+👤 **Nonhlanhla R Mndebele**
+
+- GitHub: [@Nonhlanhla](https://github.com/29td)
+- Twitter: [@NonhlanhlaMnde6](https://twitter.com/NonhlanhlaMnde6)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/nonhlanhla-mndebele-ab7448226)
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
