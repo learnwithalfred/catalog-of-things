@@ -12,10 +12,6 @@ The data is stored in JSON files but a database ia also prepared with tables str
 
 ## Getting Started
 
-To access and change the code on your computer (using GIT):
-> Note: if you don't use git, you can download the ZIP of this repository by clicking on the "Code" button above the files list.
-### Setup
-
 - Clone repository [link](https://github.com/learnwithalfred/ruby-capstone-222).
 - Change directory into project
 - Run `ruby main.rb`
