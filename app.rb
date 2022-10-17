@@ -69,15 +69,10 @@ class App
     choice = 1
 
     while choice != 13
-
-      menu
-
+      menu # call the many method
       print 'Please choose an option by entering a number:=> '
-
-      choice = gets.chomp.strip.to_i
-
-
-      select(choice)
+      choice = gets.chomp.strip.to_i # get the user's choice
+      select(choice) # call the select method with user input
 
       print 'Press any key to continue....'
 
