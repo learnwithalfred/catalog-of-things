@@ -20,3 +20,14 @@ CREATE TABLE Book(
   CONSTRAINT fk_bk FOREIGN KEY (label_id) REFERENCES label (id) ON DELETE CASCADE  
 );
 
+-- Create Games table
+CREATE TABLE games (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  item_id INT,
+  multiplayer BOOLEAN NOT NULL,
+  last_played_at DATE NOT NULL,
+  FOREIGN KEY (item_id) REFERENCES item(id),
+  PRIMARY KEY (id)
+);
+
+
