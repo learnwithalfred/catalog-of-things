@@ -40,7 +40,7 @@ class Options
     when '4'
       puts 'list_all_genre'
     when '5'
-      puts 'list_all_labels'
+      list_all_labels
     when '6'
       puts 'list_authors'
     when '7'
