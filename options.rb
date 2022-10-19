@@ -10,7 +10,9 @@ require_relative './store/preserve_book'
 require_relative './store/preserve_label'
 require_relative './store/preserve_music'
 require_relative './store/preserve_genre'
-require_relative './store/preserve_games'
+require_relative './store/preserve_game'
+require_relative './author/author_module'
+require_relative './store/preserve_author'
 
 class Options
   include LabelModule
@@ -22,17 +24,21 @@ class Options
   include LabelsPreserve
   include PreseveMusic
   include PreserveGenre
-  include PreserveGame
+  include GamesPreserve
+  include AuthorsPreserve
+  include AuthorModule
 
   def initialize
     @books = load_books
     @labels = load_labels
     @music_albums = load_musics
     @games = load_games
+    @authors = load_authors
+
     @genres = load_genres
     @execute = CreateBook.new(@books, @labels)
     @music_execute = CreateMusicAlbum.new(@music_albums, @genres)
-    @exec_game = CreateGame.new(@games)
+    @exec_game = CreateGame.new(@games, @authors)
   end
 
   def show_options
@@ -55,13 +61,13 @@ class Options
     when '2'
       list_all_music_albums
     when '3'
-      puts 'list_games'
+      list_games
     when '4'
       list_all_genres
     when '5'
       list_all_labels
     when '6'
-      list_all_games
+      list_authors
     when '7'
       @execute.add_book
     when '8'
