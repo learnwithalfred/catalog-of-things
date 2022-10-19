@@ -9,7 +9,7 @@ class Book < Item
                  _archived,
                  label,
                  id = Random.rand(1..1000))
-    super(genre, author, source, label, publish_date)
+    super(publish_date, archived, id)
     @publisher = publisher
     @cover_state = cover_state
     @id = id
