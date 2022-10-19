@@ -23,5 +23,4 @@ describe Book do
   it 'should return true if published_date is older than 10 years' do
     expect(@book2.can_be_archived?).to eql true
   end
-
 end
