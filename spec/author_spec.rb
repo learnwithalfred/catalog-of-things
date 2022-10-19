@@ -1,7 +1,7 @@
 require 'rspec'
-require_relative './author'
+require './author'
 
-Rspec.describe 'Author class' do
+describe 'Author class' do
   before :each do
     @test_author = Author.new('First Name', 'Last Name')
     @test_item = Game.new(true, '2001-01-01', '2000-01-01')
