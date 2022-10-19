@@ -1,6 +1,8 @@
 require './book/create_book'
 require './musicAlbum/create_music_album'
+require './game/create_game'
 require_relative './label/label_module'
+require_relative './game/game_module'
 require_relative './book/book_module'
 require_relative './musicAlbum/music_album_module'
 require_relative './genre/genre_module'
@@ -8,24 +10,29 @@ require_relative './store/preserve_book'
 require_relative './store/preserve_label'
 require_relative './store/preserve_music'
 require_relative './store/preserve_genre'
+require_relative './store/preserve_games'
 
 class Options
   include LabelModule
   include BookModule
   include GenreModule
   include MusicAlbumModule
+  include GameModule
   include BooksPreserve
   include LabelsPreserve
   include PreseveMusic
   include PreserveGenre
+  include PreserveGame
 
   def initialize
     @books = load_books
     @labels = load_labels
     @music_albums = load_musics
+    @games = load_games
     @genres = load_genres
     @execute = CreateBook.new(@books, @labels)
     @music_execute = CreateMusicAlbum.new(@music_albums, @genres)
+    @exec_game = CreateGame.new(@games)
   end
 
   def show_options
@@ -54,13 +61,13 @@ class Options
     when '5'
       list_all_labels
     when '6'
-      puts 'list_authors'
+      list_all_games
     when '7'
       @execute.add_book
     when '8'
       @music_execute.add_music_album
     when '9'
-      pust 'add_game'
+      @exec_game.add_game
     else
       puts 'Please enter a number between 1 and 0.'
     end

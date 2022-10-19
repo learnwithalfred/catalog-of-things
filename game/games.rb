@@ -1,4 +1,4 @@
-require_relative 'item'
+require_relative '../item'
 require 'date'
 
 class Game < Item
@@ -12,6 +12,6 @@ class Game < Item
   end
 
   def can_be_archived?
-    Date.parse(@last_played_at) < Date.today - 365
+    Date.today.year - Date.parse(@last_played_at).year > 2
   end
 end

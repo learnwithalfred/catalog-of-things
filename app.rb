@@ -17,6 +17,7 @@ class App
       @options.store_labels
       @options.store_musics
       @options.store_genres
+      @options.store_games
     end
   end
 end

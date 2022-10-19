@@ -6,7 +6,6 @@ describe MusicAlbum do
     @genre = Genre.new('Gospel')
     @album = MusicAlbum.new(true, 'Comedy', '2015-09-05')
     @album2 = MusicAlbum.new(false, 'Thriller', '2015-09-05')
-
   end
 
   it 'It should an instance Book object' do
@@ -20,5 +19,4 @@ describe MusicAlbum do
   it 'should return false when on_spotify is false' do
     expect(@album2.can_be_archived?).to eql false
   end
-
 end
