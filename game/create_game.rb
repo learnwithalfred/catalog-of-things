@@ -1,31 +1,59 @@
-require_relative './games'
-require_relative '../label/label'
+require_relative './game'
 require_relative '../item'
+require_relative '../author/author'
 
 class CreateGame
-  def initialize(game = 'unknown')
+  def initialize(game = 'unknown', author = 'unknown')
     @games = game
+    @authors = author
   end
 
   def add_game
-    print 'is the game multiplayer ? write "y" if yes or "N" no [Y/N]: '
-    multiplayer = gets.chomp.strip.upcase
+    print 'Publish date [YYYY-MM-DD] : '
+    publish_date = gets.chomp
+
+    print 'Is multiplayer game? [ yes, no ]: '
+    multiplayer = gets.chomp
+
     case multiplayer
-    when 'Y'
-      multiplayer = true
-    when 'N'
-      multiplayer = false
+    when 'yes'
+      multiplayer = 'yes'
+    when 'no'
+      multiplayer = 'no'
+    else
+      puts 'yes or no'
+      multiplayer = gets.chomp
     end
-    print 'Enter last date game played [yyyy-mm-dd] format: '
-    last_played_at = gets.chomp.strip
 
-    print 'Enter publish date in [yyyy-mm-dd] format: '
-    publish_date = gets.chomp.strip
+    print 'is Archived [Y/N]: '
+    archived = gets.chomp.downcase
 
-    game = Game.new(multiplayer, last_played_at, publish_date)
-    game.move_to_archive
-    @games << game
+    case archived
+    when 'y'
+      archived = true
 
-    puts 'Game created successfully'
+    when 'n'
+      archived = false
+    else
+      puts('please enter [Y/N]: ')
+    end
+
+    print 'Last played at[YYYY-MM-DD]: '
+    last_played_at = gets.chomp
+
+    print 'Author First Name: '
+    first_name = gets.chomp
+
+    print 'Author Last Name: '
+    last_name = gets.chomp
+    author = Author.new(first_name, last_name)
+    @authors.push(author)
+    game = Game.new(publish_date, multiplayer, last_played_at, archived, first_name)
+    @games.push(game)
+
+    author.add_item(game)
+    game.add_author(author)
+
+    puts 'New Game added successfully'
   end
 end
