@@ -20,6 +20,7 @@ CREATE TABLE Book(
   CONSTRAINT fk_bk FOREIGN KEY (label_id) REFERENCES label (id) ON DELETE CASCADE  
 );
 
+
 -- CREATE GENRE TABLE
 CREATE TABLE Genre(id INTEGER GENERATED ALWAYS AS IDENTITY,
 name VARCHAR(255),
@@ -34,3 +35,14 @@ CREATE TABLE musicAlbum(
   PRIMARY KEY(id),
   CONSTRAINT fk_ma FOREIGN KEY (genre_id) REFERENCES genre (id) ON DELETE CASCADE
 );
+
+-- Create Games table
+CREATE TABLE games (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  item_id INT,
+  multiplayer BOOLEAN NOT NULL,
+  last_played_at DATE NOT NULL,
+  FOREIGN KEY (item_id) REFERENCES item(id),
+  PRIMARY KEY (id)
+);
+
