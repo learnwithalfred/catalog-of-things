@@ -14,8 +14,3 @@ class Author
       items << item
     end
   end
-
-  authors = Author.new(true, '2022-10-12', '2022-12-12')
-  puts games.last_played_at
-  puts games.publish_date
-  puts games.can_be_archived?
