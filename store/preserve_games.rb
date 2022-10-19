@@ -7,7 +7,7 @@ module GamesPreserve
                   publish_date: game.publish_date }
     
         file = File.size('./json/games.json').zero? ? [] : JSON.parse(File.read('./json/games.json'))
-        file.push(store)
+        file.push(gamestore)
         File.write('./json/games.json', JSON.pretty_generate(file))
       end
     
