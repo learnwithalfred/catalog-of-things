@@ -1,19 +1,31 @@
 require './book/create_book'
+require './musicAlbum/create_music_album'
 require_relative './label/label_module'
 require_relative './book/book_module'
+require_relative './musicAlbum/music_album_module'
+require_relative './genre/genre_module'
 require_relative './store/preserve_book'
 require_relative './store/preserve_label'
+require_relative './store/preserve_music'
+require_relative './store/preserve_genre'
 
 class Options
   include LabelModule
   include BookModule
+  include GenreModule
+  include MusicAlbumModule
   include BooksPreserve
   include LabelsPreserve
+  include PreseveMusic
+  include PreserveGenre
 
   def initialize
     @books = load_books
     @labels = load_labels
+    @music_albums = load_musics
+    @genres = load_genres
     @execute = CreateBook.new(@books, @labels)
+    @music_execute = CreateMusicAlbum.new(@music_albums, @genres)
   end
 
   def show_options
@@ -34,11 +46,11 @@ class Options
     when '1'
       list_all_books
     when '2'
-      puts 'list_all_music_album'
+      list_all_music_albums
     when '3'
       puts 'list_games'
     when '4'
-      puts 'list_all_genre'
+      list_all_genres
     when '5'
       list_all_labels
     when '6'
@@ -46,7 +58,7 @@ class Options
     when '7'
       @execute.add_book
     when '8'
-      puts 'add_music_album'
+      @music_execute.add_music_album
     when '9'
       pust 'add_game'
     else
