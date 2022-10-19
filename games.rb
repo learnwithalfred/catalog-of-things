@@ -15,8 +15,3 @@ class Game < Item
     Date.parse(@last_played_at) < Date.today - 365
   end
 end
-
-# games = Game.new(true, '2022-10-12', '2022-12-12')
-# puts games.last_played_at
-# puts games.publish_date
-# puts games.can_be_archived?
