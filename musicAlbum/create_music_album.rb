@@ -22,19 +22,10 @@ class CreateMusicAlbum
     spot = spotify
     pub_date = user_input
     new_genre = gets.chomp.strip.to_i
-    if new_genre.zero?
-      genre = create_new_genre
-      name = create_new_genre.name
-    else
-      name = @genres[new_genre - 1].name
-    end
+    name = @genres[new_genre - 1].name
     music_album = MusicAlbum.new(spot, name, pub_date)
     music_album.move_to_archive
     @music_albums << music_album
-    unless genre.nil?
-      genre.add_item(music_album)
-      music_album.add_genre(genre)
-    end
     puts 'Music Album created successfully'
   end
 
