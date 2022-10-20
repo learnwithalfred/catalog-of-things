@@ -1,7 +1,7 @@
 require 'date'
 
 class Item
-  attr_accessor :label, :author, :genre 
+  attr_accessor :label, :author, :genre
   attr_reader :id, :publish_date, :archived
 
   def initialize(publish_date, archived, id = nil)
@@ -12,12 +12,11 @@ class Item
 
   def move_to_archive
     archived unless can_be_archived?
-
   end
 
   def genre=(genre)
     @genre = genre
-    genre.add_item(self)
+    genre.add_item(self) unless genre.items.include?(self)
   end
 
   def add_label(label)
@@ -38,4 +37,3 @@ class Item
     date_interval > 10
   end
 end
-

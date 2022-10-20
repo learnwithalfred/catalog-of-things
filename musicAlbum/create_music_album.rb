@@ -21,8 +21,6 @@ class CreateMusicAlbum
   def add_music_album
     spot = spotify
     pub_date = user_input
-    puts "this is the date: #{pub_date}"
-    puts '0) ***** Type zero to create your own genre *****'
     new_genre = gets.chomp.strip.to_i
     if new_genre.zero?
       genre = create_new_genre
