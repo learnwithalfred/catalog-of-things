@@ -4,7 +4,7 @@ require './item'
 describe Label do
   before :each do
     @label = Label.new('Comedy', 'white')
-    @item = Item.new(2, 'John Deo', 'Kumerica', @label, '2022-01-01')
+    @item = Item.new('2020-01-01', false)
     @label.add_item(@item)
   end
 

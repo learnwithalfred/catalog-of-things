@@ -1,24 +1,18 @@
-require './genre/genre'
-require './item'
+require_relative '../genre/genre'
+require_relative '../item'
 
 describe Genre do
   before :each do
-    @genre = Genre.new('Comedy')
-    @item = Item.new(2, 'John Deo', 'Kumerica', @genre, '2022-01-01')
-    @genre.add_item(@item)
+    @genre = Genre.new('Rock')
+    @item = Item.new('2020-01-01', false)
   end
-
-  describe '#new' do
-    it 'it should return an instance of Genre object' do
-      expect(@genre).to be_instance_of Genre
+  context 'when item is added to genre' do
+    it 'when @genre is created items array should be empty' do
+      expect(@genre.items).to be_empty
     end
 
-    it 'it should return an instance of Item object' do
-      expect(@item).to be_instance_of Item
+    it 'should should have a correct name attribue' do
+      expect(@genre.name).to eq('Rock')
     end
-  end
-
-  it 'it should return one item' do
-    expect(@genre.items.length).to eql 1
   end
 end

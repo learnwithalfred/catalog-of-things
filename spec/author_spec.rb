@@ -1,21 +1,23 @@
-require 'rspec'
-require './author'
+require './game/game'
+require './author/author'
+require './item'
 
-describe 'Author class' do
+describe Author do
   before :each do
-    @test_author = Author.new('First Name', 'Last Name')
-    @test_item = Game.new(true, '2001-01-01', '2000-01-01')
+    @Zabuza = Author.new('Deidara', 'Danzo')
   end
 
-  it 'should be an instance of Author' do
-    expect(@test_author).to be_an_instance_of(Author)
-  end
+  context 'Test for Author class' do
+    it 'should be instance of author' do
+      expect(@Zabuza).to be_an_instance_of Author
+    end
 
-  it 'should have a first name' do
-    expect(@test_author.first_name).to eq('First Name')
-  end
+    it 'should return first-name' do
+      expect(@Zabuza.first_name).to eq('Deidara')
+    end
 
-  it 'should have a last name' do
-    expect(@test_author.last_name).to eq('Last Name')
+    it 'should return last-name' do
+      expect(@Zabuza.last_name).to eq('Danzo')
+    end
   end
 end
